@@ -101,7 +101,7 @@ export default {
     this.observer = new IntersectionObserver(this.onElementObserved, {
       root: this.$el,
       rootMargin: '0px',
-      threshold: [...Array(100).keys()].map(x => x / 100)
+      threshold: 1.0
     });
   },
   mounted() {
