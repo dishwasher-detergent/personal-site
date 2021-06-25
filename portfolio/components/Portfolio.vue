@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex flex-col">
+    <div id="portfolio" class="w-full flex flex-col">
         <div class="flex flex-row h-32">
             <div class="flex-1 bg-gray-100">
                 <div class=" h-full rounded-br-3xl bg-white"></div>

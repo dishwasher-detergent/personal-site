@@ -1,7 +1,7 @@
 <template>
   <div
     ref="project"
-    class="w-full flex justify-end relative flex-col md:flex-row"
+    class="w-full mb-16 flex justify-end relative flex-col md:flex-row"
   >
     <transition name="slide">
       <div
@@ -100,7 +100,8 @@ export default {
   created() {
     this.observer = new IntersectionObserver(this.onElementObserved, {
       root: this.$el,
-      threshold: 1,
+      rootMargin: '0px',
+      threshold: [...Array(100).keys()].map(x => x / 100)
     });
   },
   mounted() {
@@ -112,7 +113,6 @@ export default {
         if (!isIntersecting) {
           return;
         }
-
         this.observer.unobserve(target);
         this.shown = true;
       });

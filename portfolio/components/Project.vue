@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full space-y-16">
+  <div class="w-full">
       <ProjectCard
         v-for="project in projects"
         :key="project.id"
