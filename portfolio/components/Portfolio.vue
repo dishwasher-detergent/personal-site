@@ -14,7 +14,7 @@
                 <div class="w-full h-full rounded-bl-3xl bg-white"></div>
             </div>
         </div>
-        <div class="w-full rounded-3xl p-24 bg-gray-100">
+        <div class="w-full rounded-3xl p-4 md:p-12 lg:p-24 bg-gray-100">
             <Project/>
         </div>
     </div>

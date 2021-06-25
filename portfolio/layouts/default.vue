@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col max-w-7xl mx-auto h-screen relative text-base-content">
+  <div class="flex flex-col max-w-7xl mx-auto h-screen relative text-base-content px-4">
     <Nav />
     <Nuxt />
     <Footer />
@@ -12,7 +12,8 @@
 }
 
 html {
-  @apply text-gray-700
+  @apply text-gray-700;
+  transition: all .25s;
 }
 
 h1,h2,h3 {
