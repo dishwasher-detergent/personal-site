@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col max-w-7xl mx-auto h-screen relative text-base-content px-4">
+  <div class="flex flex-col max-w-7xl mx-auto min-h-screen relative px-4">
     <Nav />
     <Nuxt />
     <Footer />

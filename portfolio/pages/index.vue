@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full space-y-16">
+  <div class="w-full flex-1 space-y-16">
     <Hero/>
     <Portfolio/>
   </div>
