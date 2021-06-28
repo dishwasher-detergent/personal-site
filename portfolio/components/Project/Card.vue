@@ -133,6 +133,12 @@ export default {
   animation: slideIn 1s ease-out both;
 }
 
+@media (min-width: 640px) {
+  .bounce-enter-active {
+    animation: slideInMobile 1s ease-out both;
+  }
+}
+
 .fade-leave-active,
 .fade-enter-active {
   transition: 1s;
@@ -157,6 +163,24 @@ export default {
   }
   100% {
     transform: scale(1, 1) translateX(0);
+  }
+}
+
+@keyframes slideInMobile {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.02,0.98) translateY(0);
+  }
+  30% {
+    transform: scale(0.98,1.02) translateY(-25px);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
   }
 }
 </style>
