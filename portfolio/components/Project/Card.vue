@@ -145,14 +145,12 @@ export default {
 
 @keyframes slideIn {
   0% {
-    opacity: 0%;
     transform: scale(1, 1) translateX(0);
   }
   10% {
     transform: scale(0.98, 1.02) translateX(0);
   }
   30% {
-    opacity: 100%;
     transform: scale(1.02,0.98) translateX(-25px);
   }
   50% {
