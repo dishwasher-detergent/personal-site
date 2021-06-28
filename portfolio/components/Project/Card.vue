@@ -133,7 +133,7 @@ export default {
   animation: slideIn 1s ease-out both;
 }
 
-@media (min-width: 640px) {
+@media only screen and (max-width: 1024px) {
   .bounce-enter-active {
     animation: slideInMobile 1s ease-out both;
   }
