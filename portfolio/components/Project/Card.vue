@@ -3,7 +3,7 @@
     ref="project"
     class="w-full mb-16 flex justify-end relative flex-col md:flex-row"
   >
-    <transition name="fade">
+    <transition name="bounce">
       <div
         v-if="shown"
         class="
@@ -116,9 +116,9 @@ export default {
             return;
           }
           
-        this.observer.unobserve(target);
-
-        this.shown = true;
+          console.log('test')
+          this.observer.unobserve(target);
+          this.shown = true;
       });
     },
   },
@@ -130,7 +130,7 @@ export default {
   height: 30rem;
 }
 
-.slide-enter-active {
+.bounce-enter-active {
   animation: slideIn 1s ease-out both;
 }
 
