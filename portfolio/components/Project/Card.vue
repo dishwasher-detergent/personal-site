@@ -171,10 +171,10 @@ export default {
     transform: scale(1, 1) translateY(0);
   }
   10% {
-    transform: scale(1.01,0.91) translateY(0);
+    transform: scale(1.01,0.99) translateY(0);
   }
   30% {
-    transform: scale(0.91,1.01) translateY(-15px);
+    transform: scale(0.99,1.01) translateY(-15px);
   }
   50% {
     transform: scale(1, 1) translateY(0);
