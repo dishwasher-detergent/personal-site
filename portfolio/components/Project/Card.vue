@@ -99,7 +99,7 @@ export default {
   },
   created() {
     this.observer = new IntersectionObserver(this.onElementObserved, {
-      rootMargin: "0px 0px -25% 0px",
+      rootMargin: "0px 0px -10% 0px",
       threshold: 1
     });
   },
