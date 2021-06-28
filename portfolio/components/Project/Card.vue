@@ -98,22 +98,20 @@ export default {
     };
   },
   created() {
-    this.observer = new IntersectionObserver(this.onElementObserved, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1
-    });
+
   },
   mounted() {
     this.observer.observe(this.$el);
   },
   methods: {
     onElementObserved(entries) {
-      entries.forEach(({ target, isIntersecting }) => {
-        if (!isIntersecting) {
-          return;
-        }
+      entries.forEach(({ target, isIntersecting}) => {
+          if (!isIntersecting) {
+            return;
+          }
+          
         this.observer.unobserve(target);
+
         this.shown = true;
       });
     },
