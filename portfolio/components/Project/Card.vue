@@ -104,7 +104,7 @@ export default {
     });
   },
   mounted() {
-    this.observer.observe(this.$refs.project);
+    this.observer.observe(this.$el);
   },
   beforeDestroy() {
     this.observer.disconnect();
@@ -116,7 +116,6 @@ export default {
             return;
           }
           
-          console.log('test')
           this.observer.unobserve(target);
           this.shown = true;
       });
