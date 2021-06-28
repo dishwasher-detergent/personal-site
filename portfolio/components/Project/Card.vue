@@ -3,7 +3,7 @@
     ref="project"
     class="w-full mb-16 flex justify-end relative flex-col md:flex-row"
   >
-    <transition name="slide">
+    <transition name="fade">
       <div
         v-if="shown"
         class="
