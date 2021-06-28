@@ -98,10 +98,16 @@ export default {
     };
   },
   created() {
-
+    this.observer = new IntersectionObserver(this.onElementObserved, {
+      root: null,
+      threshold: 0
+    });
   },
   mounted() {
-    this.observer.observe(this.$el);
+    this.observer.observe(this.$refs.project);
+  },
+  beforeDestroy() {
+    this.observer.disconnect();
   },
   methods: {
     onElementObserved(entries) {
