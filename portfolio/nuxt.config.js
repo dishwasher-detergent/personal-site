@@ -19,8 +19,8 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ['~/assets/main.css'],
+  pageTransition: 'my-page',
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -55,4 +55,14 @@ export default {
       }
     }
   },
+
+  // mail: {
+  //   message: {
+  //     to: 'foo@bar.de',
+  //   },
+  //   smtp: {
+  //     host: "smtp.example.com",
+  //     port: 587,
+  //   },
+  // },
 }

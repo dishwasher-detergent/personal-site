@@ -15,7 +15,7 @@
 export default {
     data(){
         return{
-            projects: null
+            projects: null,
         }
     },
     created(){
@@ -23,6 +23,14 @@ export default {
     },
     methods:{
         async getProjects(){
+            this.projects = [{
+                    title: 'Error',
+                    tech: [{
+                        name: 'Error',
+                        color: 'red'
+                    }],
+                    information: "There was an error retrieving the projects, please try again later.",
+                }]
             let { data: projects, error } = await this.$supabase
                 .from('projects')
                 .select('*')

@@ -29,6 +29,7 @@
             overflow-hidden
             bg-white
             flex flex-col
+            shadow
           "
         >
           <div class="flex-1 flex flex-col">
@@ -133,7 +134,7 @@ export default {
   animation: slideIn 1s ease-out both;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 640px) {
   .bounce-enter-active {
     animation: slideInMobile 1s ease-out both;
   }
@@ -153,10 +154,10 @@ export default {
     transform: scale(1, 1) translateX(0);
   }
   10% {
-    transform: scale(0.98, 1.02) translateX(0);
+    transform: scale(0.99, 1.01) translateX(0);
   }
   30% {
-    transform: scale(1.02,0.98) translateX(-25px);
+    transform: scale(1.01,0.99) translateX(-15px);
   }
   50% {
     transform: scale(1, 1) translateX(0);
