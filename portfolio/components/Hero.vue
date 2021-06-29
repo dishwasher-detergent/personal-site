@@ -1,5 +1,12 @@
 <template>
-    <div :class="'w-full flex items-center justify-center relative overflow-hidden rounded-3xl py-16 md:py-48 px-6 md:px-24 bg-gradient-to-br from-' + from + '-200 to-' + to + '-200'">
+    <div 
+        class="w-full flex items-center justify-center relative overflow-hidden rounded-3xl py-16 md:py-48 px-6 md:px-24 bg-gradient-to-br"
+        :class="{
+            'from-yellow-200 to-red-200' : from == 'red',
+            'from-blue-200 to-red-200' : from == 'red',
+            'from-green-200 to-red-200' : from == 'red'
+         }"
+     >
         <div class="flex flex-col md:flex-row h-full w-full">
             <h1 class="text-6xl md:text-9xl">
                 <slot name="title"></slot>
