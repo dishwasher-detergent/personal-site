@@ -2,9 +2,9 @@
     <div 
         class="w-full flex items-center justify-center relative overflow-hidden rounded-3xl py-16 md:py-48 px-6 md:px-24 bg-gradient-to-br"
         :class="{
-            'from-yellow-200 to-red-200' : from == 'red',
-            'from-blue-200 to-red-200' : from == 'red',
-            'from-green-200 to-red-200' : from == 'red'
+            'from-yellow-200 to-red-200' : from == 'yellow',
+            'from-blue-200 to-red-200' : from == 'blue',
+            'from-green-200 to-red-200' : from == 'green'
          }"
      >
         <div class="flex flex-col md:flex-row h-full w-full">
