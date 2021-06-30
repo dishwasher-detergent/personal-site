@@ -110,8 +110,7 @@ export default {
   },
   methods: {
     async userLogin() {
-      const { type = null } = this.$route.query;
-      if (type === "recovery") {
+      if (this.type === "recovery") {
         this.resetPass();
       } else {
         this.loginUser();
