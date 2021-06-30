@@ -25,7 +25,7 @@
               rounded-3xl
             "
           >
-            {{ error }}
+            <span>{{ error }}</span
           </div>
           <label v-if="type !== 'recovery'" class="flex flex-col font-bold">
             <p class="text-sm text-gray-600 mb-2 ml-4">Username</p>
