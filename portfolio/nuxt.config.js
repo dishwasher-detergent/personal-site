@@ -47,6 +47,10 @@ export default {
   build: {
   },
 
+  axios: {
+    baseURL: process.env.NUXT_WEBSITE
+  },
+  
   auth: {
     strategies: {
       supabase: {
@@ -55,14 +59,4 @@ export default {
       }
     }
   },
-
-  // mail: {
-  //   message: {
-  //     to: 'foo@bar.de',
-  //   },
-  //   smtp: {
-  //     host: "smtp.example.com",
-  //     port: 587,
-  //   },
-  // },
 }
