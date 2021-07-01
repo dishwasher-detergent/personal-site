@@ -52,7 +52,10 @@ export default {
   props: ["stage"],
   methods: {
     nextStage() {
-        this.$emit("next");
+        if(this.stage === 'why')
+          this.$emit("send");
+        else
+          this.$emit("next");
     },
     lastStage() {
       this.$emit("last");

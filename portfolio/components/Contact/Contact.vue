@@ -1,8 +1,22 @@
 <template>
   <form class="w-full flex flex-col relative" @submit.stop.prevent="">
+    <!-- <p class="absolute -top-32">
+      information
+      {{contact}}
+    </p> -->
     <transition name="slide">
       <div
-        class="md:absolute p-8 w-full h-full flex-1 rounded-2xl shadow bg-white flex flex-col"
+        class="
+          md:absolute
+          p-8
+          w-full
+          h-full
+          flex-1
+          rounded-2xl
+          shadow
+          bg-white
+          flex flex-col
+        "
         v-if="curr_stage == 'why'"
       >
         <h2 class="text-5xl mb-6">Spill The Beans</h2>
@@ -10,6 +24,7 @@
           <label class="flex flex-col font-bold">
             <p class="text-sm text-gray-600 mb-2 ml-4">Message</p>
             <textarea
+              v-model="contact.message"
               placeholder="What it do?"
               class="
                 py-3
@@ -22,12 +37,22 @@
             ></textarea>
           </label>
         </div>
-        <ContactButtonGroup stage="why" @next="nextStage" @last="backStage" />
+        <ContactButtonGroup stage="why" @next="nextStage" @last="backStage" @send="sendEmail" />
       </div>
     </transition>
     <transition name="slide">
       <div
-        class="md:absolute p-8 w-full h-full flex-1 rounded-2xl shadow bg-white flex flex-col"
+        class="
+          md:absolute
+          p-8
+          w-full
+          h-full
+          flex-1
+          rounded-2xl
+          shadow
+          bg-white
+          flex flex-col
+        "
         v-if="curr_stage == 'what'"
       >
         <h2 class="text-5xl mb-6">Pique My Interest</h2>
@@ -35,6 +60,7 @@
           <label class="flex flex-col font-bold">
             <p class="text-sm text-gray-600 mb-2 ml-4">Subject</p>
             <input
+              v-model="contact.subject"
               type="text"
               placeholder="Howdy Partner"
               class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
@@ -46,24 +72,55 @@
     </transition>
     <transition name="slide">
       <div
-        class="md:absolute p-8 w-full h-full flex-1 rounded-2xl shadow bg-white flex flex-col"
+        class="
+          md:absolute
+          p-8
+          w-full
+          h-full
+          flex-1
+          rounded-2xl
+          shadow
+          bg-white
+          flex flex-col
+        "
         v-if="curr_stage == 'who'"
       >
         <h2 class="text-5xl mb-6">Who are you?</h2>
-        <div class="space-y-4 flex-1">
+        <div class="space-y-4 flex-1 w-full">
+          <div
+            class="
+              flex flex-col
+              md:grid md:grid-cols-2
+              md:gap-x-4
+              space-y-4
+              md:space-y-0
+            "
+          >
+            <label class="flex flex-col font-bold">
+              <p class="text-sm text-gray-600 mb-2 ml-4">First Name</p>
+              <input
+                v-model="contact.name.first"
+                type="text"
+                placeholder="David"
+                class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+              />
+            </label>
+            <label class="flex flex-col font-bold">
+              <p class="text-sm text-gray-600 mb-2 ml-4">Last Name</p>
+              <input
+                v-model="contact.name.last"
+                type="text"
+                placeholder="Spade"
+                class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+              />
+            </label>
+          </div>
           <label class="flex flex-col font-bold">
-            <p class="text-sm text-gray-600 mb-2 ml-4">First Name</p>
+            <p class="text-sm text-gray-600 mb-2 ml-4">Email</p>
             <input
-              type="text"
-              placeholder="David"
-              class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
-            />
-          </label>
-          <label class="flex flex-col font-bold">
-            <p class="text-sm text-gray-600 mb-2 ml-4">Last Name</p>
-            <input
-              type="text"
-              placeholder="Spade"
+              v-model="contact.email"
+              type="email"
+              placeholder="someone@something.com"
               class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
             />
           </label>
@@ -79,6 +136,15 @@ export default {
     return {
       order: ["who", "what", "why"],
       curr_stage: "who",
+      contact: {
+        name: {
+          first: null,
+          last: null,
+        },
+        email: null,
+        subject: null,
+        message: null,
+      },
     };
   },
   methods: {
@@ -93,6 +159,14 @@ export default {
       pos--;
 
       this.curr_stage = this.order[pos--];
+    },
+    async sendEmail() {
+      try {
+        const { data } = await this.$axios.post("/api/sendEmail", this.contact);
+        console.log(data)
+      } catch (err) {
+        alert(err);
+      }
     },
   },
 };
