@@ -1,5 +1,5 @@
 <template>
-  <form class="w-full flex flex-col relative" @submit.stop.prevent="">
+  <form class="w-full flex flex-col relative" @submit.prevent>
     <!-- <p class="absolute -top-32">
       information
       {{contact}}
