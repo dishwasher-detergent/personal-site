@@ -3,15 +3,19 @@ const username = process.env.NUXT_USERNAME;
 const password = process.env.NUXT_PASSWORD;
 
 export default async (req, res) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp.office365.com", // hostname
-    secure: false,
-    port: 587, // port for secure SMTP
-    auth: {
-      user: username,
-      pass: password
-    },
-  });
+    const transporter = nodemailer.createTransport({
+        host: 'smtp.office365.com',
+        port: 587,
+        secure: false,
+        auth: {
+            user: username,
+            pass: password
+        },
+        requireTLS: true,
+        tls: {
+            ciphers: 'SSLv3'
+        }
+    });
 
   const mail = {
     from: "kenny.bass@outlook.com",
