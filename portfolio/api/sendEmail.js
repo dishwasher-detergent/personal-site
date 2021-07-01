@@ -13,8 +13,8 @@ export default async (req, res) => {
        ciphers:'SSLv3'
     },
     auth: {
-      user: username,
-      pass: password
+      user: 'kenny.bass@outlook.com',
+      pass: 'Bakerismydog1!'
     }
   });
 
