@@ -7,7 +7,7 @@ export default async (req, res) => {
         service: 'gmail',
         auth: {
           user: username,
-          pass: password // naturally, replace both with your real credentials or an application-specific password
+          pass: password
         }
       });
 
