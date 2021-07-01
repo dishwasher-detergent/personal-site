@@ -19,6 +19,19 @@
         "
         v-if="curr_stage == 'why'"
       >
+        <div
+          v-if="sent"
+          class="
+            px-4
+            py-3
+            w-full
+            bg-blue-200
+            text-blue-600 text-bold
+            rounded-3xl
+          "
+        >
+          <span>{{ sent }}</span>
+        </div>
         <h2 class="text-5xl mb-6">Spill The Beans</h2>
         <div class="space-y-6 flex-1">
           <label class="flex flex-col font-bold">
@@ -145,6 +158,7 @@ export default {
         subject: null,
         message: null,
       },
+      sent: null
     };
   },
   methods: {
@@ -162,8 +176,9 @@ export default {
     },
     async sendEmail() {
       try {
-        const { data } = await this.$axios.post("/api/sendEmail", this.contact);
-        console.log(data)
+        const { data, error } = await this.$axios.post("/api/sendEmail", this.contact);
+        if(error) throw error
+        this.sent  = data
       } catch (err) {
         alert(err);
       }
