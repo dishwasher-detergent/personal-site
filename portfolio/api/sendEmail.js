@@ -5,7 +5,7 @@ const password = process.env.NUXT_PASSWORD;
 export default async (req, res) => {
     console.log(req.body)
   const transporter = nodemailer.createTransport({
-    host: "smtp.live.com", //replace with your email provider
+    host: "smtp-mail.outlook.com", //replace with your email provider
     port: 587,
     auth: {
       user: username,
