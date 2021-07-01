@@ -37,7 +37,7 @@
             ></textarea>
           </label>
         </div>
-        <ContactButtonGroup stage="why" @next="nextStage" @last="backStage" />
+        <ContactButtonGroup stage="why" @next="nextStage" @last="backStage" @send="sendEmail" />
       </div>
     </transition>
     <transition name="slide">
