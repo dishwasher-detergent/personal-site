@@ -24,6 +24,7 @@
           class="
             px-4
             py-3
+            mb-6
             w-full
             bg-blue-200
             text-blue-600 text-bold
