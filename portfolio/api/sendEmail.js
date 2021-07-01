@@ -3,8 +3,8 @@ const username = process.env.NUXT_USERNAME;
 const password = process.env.NUXT_PASSWORD;
 
 export default async (req, res) => {
-    console.log(req)
-    res.status(200).send("Email successfully sent to recipient!");
+    console.log(req.body)
+    res.status(200).send(req.body);
 //   const transporter = nodemailer.createTransport({
 //     host: "smtp.live.com", //replace with your email provider
 //     port: 587,

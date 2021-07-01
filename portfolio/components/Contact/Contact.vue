@@ -163,6 +163,7 @@ export default {
     async sendEmail() {
       try {
         const { data } = await this.$axios.post("/api/sendEmail", this.contact);
+        console.log(data)
       } catch (err) {
         alert(err);
       }
