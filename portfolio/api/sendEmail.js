@@ -6,8 +6,12 @@ export default async (req, res) => {
     console.log(username)
     console.log(password)
   const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com", //replace with your email provider
-    port: 587,
+    host: "smtp-mail.outlook.com", // hostname
+    secureConnection: false, // TLS requires secureConnection to be false
+    port: 587, // port for secure SMTP
+    tls: {
+       ciphers:'SSLv3'
+    },
     auth: {
       user: username,
       pass: password
