@@ -23,6 +23,7 @@
     </button>
     <button
       @click="nextStage"
+      type="submit"
       class="
         w-24
         py-2
