@@ -12,7 +12,7 @@ export default async (req, res) => {
       });
 
   const mail = {
-    from: "kennethtylerbass@gmail.com",
+    from: username,
     to: "kenny_bass@outlook.com",
     subject: req.body.subject,
     text: `${req.body.name.first + " " + req.body.name.last} <${
