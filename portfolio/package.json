@@ -16,6 +16,7 @@
     "@nuxtjs/sanity": "^0.9.4",
     "@supabase/supabase-js": "^1.15.1",
     "core-js": "^3.9.1",
+    "nodemailer": "^6.6.2",
     "nuxt": "^2.15.3"
   },
   "devDependencies": {
