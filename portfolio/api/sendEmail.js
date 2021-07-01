@@ -23,7 +23,7 @@ export default async (req, res) => {
 
   //2. You can configure the object however you want
   const mail = {
-    from: req.body.name.first + ' ' + req.name.last,
+    from: req.body.name.first + ' ' + req.body.name.last,
     to: 'kenny_bass@outlook.com',
     subject: req.body.subject,
     text: `${req.body.name.first + ' ' + req.body.name.last} <${req.body.email}> \n${req.body.message}`
