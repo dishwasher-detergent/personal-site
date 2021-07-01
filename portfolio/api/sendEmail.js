@@ -4,7 +4,7 @@ const password = process.env.NUXT_PASSWORD;
 
 export default async (req, res) => {
 
-    const transport = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
         service: "hotmail",
         auth: {
             user: username,
