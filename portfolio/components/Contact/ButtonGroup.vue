@@ -52,8 +52,8 @@
 export default {
   props: ["stage"],
   mounted(){
-    this.addEventListener('keypress', event => {
-      if (event.keyCode == 13) {
+    window.addEventListener("keypress", e => {
+      if (e.keyCode == 13) {
         this.nextStage
       }
     })
