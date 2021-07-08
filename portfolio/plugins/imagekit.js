@@ -1,9 +1,9 @@
 import Vue from 'vue'
 const {ImageKit} = require('imagekitio-vue')
 
-const private_api = process.env.NUXT_IMAGEKIT_PRIVATE;
-const public_api = process.env.NUXT_IMAGEKIT_PUBLIC;
-const imageKit_endpoint = process.env.NUXT_IMAGEKIT_ENDPOINT;
+const private_api = process.env.IMAGEKIT_PRIVATE;
+const public_api = process.env.IMAGEKIT_PUBLIC;
+const imageKit_endpoint = process.env.IMAGEKIT_ENDPOINT;
 
 Vue.use(ImageKit, {
   urlEndpoint: imageKit_endpoint,
