@@ -41,15 +41,9 @@ export default {
   },
 
   auth: {
-    redirect: {
-      login: "/login",
-      logout: "/",
-      callback: "/login",
-      home: "/"
-    },
     strategies: {
       supabase: {
-        scheme: "~/schemes/supabaseScheme"
+        scheme: '~/schemes/supabaseScheme'
         /* ... */
       }
     }
