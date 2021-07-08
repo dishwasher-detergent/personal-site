@@ -8,6 +8,7 @@
       :information="project.information"
       :website="project.website"
       :github="project.github"
+      :image="project.image"
     />
   </div>
 </template>

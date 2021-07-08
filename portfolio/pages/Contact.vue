@@ -1,6 +1,6 @@
 <template>
   <div class="w-full flex-1">
-    <Hero from="blue" to="red">
+    <Hero from="green" to="red">
         <template v-slot:title>
           Contact<br>Me
         </template>

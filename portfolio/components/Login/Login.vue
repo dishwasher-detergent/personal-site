@@ -96,15 +96,8 @@ export default {
       this.access_token = paramsObj.access_token;
     } else {
       const { type = null } = this.$route.query;
-      this.type = type;
-      if (
-        type &&
-        (type === "signIn" || type === "signUp" || type === "signOut")
-      ) {
-        this.type = type;
-        if (type === "signOut") {
-          await this.signOut();
-        }
+      if (type === "signOut") {
+        await this.signOut()
       }
     }
   },
@@ -118,20 +111,21 @@ export default {
     },
     async signOut() {
       try {
-        let response = await this.$auth.logout("supabase");
+        let response = await this.$auth.logout('supabase')
       } catch (err) {
-        console.log(err);
+        console.log(err)
       }
-      this.$router.push('/')
     },
     async loginUser() {
       try {
-        let response = await this.$auth.loginWith("supabase", {
-          email: this.login.email.toLowerCase(),
-          password: this.login.password,
-        });
+        let response = await this.$auth.loginWith('supabase', 
+          {
+            email: this.login.email.toLowerCase(),
+            password: this.login.password
+          }
+        )
       } catch (err) {
-        this.error = err.message;
+        this.error = err.message
       }
     },
     async resetPass() {
@@ -141,8 +135,7 @@ export default {
           {
             password: this.login.password,
           }
-        );
-        if (error) throw error;
+        )
       } catch (err) {
         this.error = err.message;
       }

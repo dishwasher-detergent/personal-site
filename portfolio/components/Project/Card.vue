@@ -79,19 +79,23 @@
         class="
           w-full
           md:w-4/5
-          h-96
+          h-48
           md:h-large
           bg-gray-300
           rounded-b-3xl
           md:rounded-3xl
+          overflow-hidden
+          shadow
         "
-      ></div>
+      >
+      	<ProjectImage :alt="title" :image="image"/>
+      </div>
     </transition>
   </div>
 </template>
 <script>
 export default {
-  props: ["title", "techs", "information", "github", "website"],
+  props: ["title", "techs", "information", "github", "website", "image"],
   data() {
     return {
       observer: null,
