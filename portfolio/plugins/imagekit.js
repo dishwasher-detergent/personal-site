@@ -6,7 +6,7 @@ const public_api = process.env.IMAGEKIT_PUBLIC;
 const imageKit_endpoint = process.env.IMAGEKIT_ENDPOINT;
 
 Vue.use(ImageKit, {
-  urlEndpoint: imageKit_endpoint,
-  publicKey: public_api,
+  urlEndpoint: process.env.IMAGEKIT_ENDPOINT,
+  publicKey: process.env.IMAGEKIT_PUBLIC,
   authenticationEndpoint: 'https://kennethbass.com/api/imageKit'
 })
