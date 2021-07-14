@@ -23,6 +23,7 @@
     </button>
     <button
       @click="nextStage"
+      type="submit"
       class="
         w-24
         py-2
@@ -50,6 +51,13 @@
 <script>
 export default {
   props: ["stage"],
+  mounted(){
+    window.addEventListener("keypress", e => {
+      if (e.keyCode == 13) {
+        this.nextStage
+      }
+    })
+  },
   methods: {
     nextStage() {
         if(this.stage === 'why')
