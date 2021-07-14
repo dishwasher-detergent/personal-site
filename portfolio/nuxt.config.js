@@ -59,5 +59,11 @@ export default {
     imagekit: {
       baseURL: "https://ik.imagekit.io/kennethbass/"
     }
+  },
+
+  publicRuntimeConfig: {
+    private_api: process.env.NUXT_IMAGEKIT_PRIVATE,
+    public_api: process.env.NUXT_IMAGEKIT_PUBLIC,
+    imageKit_endpoint: process.env.NUXT_IMAGEKIT_ENDPOINT
   }
 };

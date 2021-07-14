@@ -276,7 +276,7 @@ export default {
     return {
       techDrop: false,
       techInput: null,
-      techColor: null,
+      techColor: 'blue',
       project: {
         id: 1,
         title: null,
