@@ -1,9 +1,5 @@
 <template>
   <form class="w-full flex flex-col relative" @submit.stop.prevent="">
-    <!-- <p class="absolute -top-32">
-      information
-      {{contact}}
-    </p> -->
     <transition name="slide">
       <div
         class="
@@ -19,6 +15,21 @@
         "
         v-if="curr_stage == 'why'"
       >
+        <div class="space-y-4 flex-1">
+          <div
+            v-if="error"
+            class="
+              px-4
+              py-3
+              w-full
+              bg-red-200
+              text-red-600 text-bold
+              rounded-3xl
+            "
+          >
+            <span>{{ error }}</span>
+          </div>
+        </div>
         <h2 class="text-5xl mb-6">Spill The Beans</h2>
         <div class="space-y-6 flex-1">
           <label class="flex flex-col font-bold">
@@ -55,6 +66,21 @@
         "
         v-if="curr_stage == 'what'"
       >
+        <div class="space-y-4 flex-1">
+          <div
+            v-if="error"
+            class="
+              px-4
+              py-3
+              w-full
+              bg-red-200
+              text-red-600 text-bold
+              rounded-3xl
+            "
+          >
+            <span>{{ error }}</span>
+          </div>
+        </div>
         <h2 class="text-5xl mb-6">Pique My Interest</h2>
         <div class="space-y-6 flex-1">
           <label class="flex flex-col font-bold">
@@ -85,6 +111,21 @@
         "
         v-if="curr_stage == 'who'"
       >
+        <div class="space-y-4 flex-1">
+          <div
+            v-if="error"
+            class="
+              px-4
+              py-3
+              w-full
+              bg-red-200
+              text-red-600 text-bold
+              rounded-3xl
+            "
+          >
+            <span>{{ error }}</span>
+          </div>
+        </div>
         <h2 class="text-5xl mb-6">Who are you?</h2>
         <div class="space-y-4 flex-1 w-full">
           <div
@@ -145,10 +186,17 @@ export default {
         subject: null,
         message: null,
       },
+      error: null
     };
   },
   methods: {
     nextStage() {
+      let check = this.checkStage()
+      if(check){
+        this.error = check
+        return
+      }
+      this.error = null
       let pos = this.order.indexOf(this.curr_stage);
       pos++;
 
@@ -160,10 +208,33 @@ export default {
 
       this.curr_stage = this.order[pos--];
     },
+    checkStage(){
+      switch(this.curr_stage){
+        case "who": 
+          if(!this.contact.name.first) return "Please fill out your first name!"
+          if(!this.contact.name.last) return "Please fill out your last name!"
+          if(this.contact.email) {
+            if(!this.contact.email.includes('@') || !this.contact.email.includes('.')) return 'Please provide a valid email address!'
+          } else {
+            return "Please fill out your email address!"
+          }
+          break
+        case "what":
+          if(!this.contact.subject) return "Please fill out the subject!"
+          break
+        case "why":
+          if(!this.contact.message) return "Please fill out the message!"
+          break
+      }
+    },
     async sendEmail() {
+      let check = this.checkStage()
+      if(check){
+        this.error = check
+        return
+      }      
       try {
         const { data } = await this.$axios.post("/api/sendEmail", this.contact);
-        console.log(data)
       } catch (err) {
         alert(err);
       }

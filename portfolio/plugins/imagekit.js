@@ -8,5 +8,5 @@ const imageKit_endpoint = process.env.NUXT_IMAGEKIT_ENDPOINT;
 Vue.use(ImageKit, {
   urlEndpoint: imageKit_endpoint,
   publicKey: public_api,
-  authenticationEndpoint: 'https://branandtate.com/api/imageKit'
+  authenticationEndpoint: 'https://beta.kennethbass.com/api/imageKit'
 })

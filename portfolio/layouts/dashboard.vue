@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-col max-w-7xl mx-auto min-h-screen relative px-4">
-    <Nav />
-    <Nuxt />
-    <Footer />
-  </div>
+    <div class="h-screen bg-gray-50 flex flex-col">
+      <NavDashboard />
+      <DashboardContent>
+        <DashboardSidebar/>
+        <Nuxt />
+      </DashboardContent>
+    </div>
 </template>
 <style>
 @font-face {
