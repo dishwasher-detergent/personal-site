@@ -84,15 +84,12 @@ export default {
   },
   async mounted() {
     let orig_hash = this.$route.hash;
-
     if (orig_hash) {
       this.type = "recovery";
-
       const params = orig_hash.split("#")[1];
       const paramsObj = Object.fromEntries(
         new URLSearchParams(params).entries()
       );
-
       this.access_token = paramsObj.access_token;
     } else {
       const { type = null } = this.$route.query;
