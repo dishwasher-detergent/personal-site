@@ -1,8 +1,7 @@
-<template>
-    <p>test</p>
-</template>
 <script>
-export default {
-  middleware: 'auth',
-}
+  export default {
+    middleware({ store, redirect }) {
+        return redirect('/Dashboard/Portfolio')
+    }
+  }
 </script>

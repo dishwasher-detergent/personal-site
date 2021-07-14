@@ -21,7 +21,7 @@ export default {
   pageTransition: "my-page",
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["@/plugins/supabase.client.js", "~/plugins/imagekit.js"],
+  plugins: ["@/plugins/supabase.client.js", "~/plugins/imagekit.js","~/plugins/boringAvatars.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -53,5 +53,11 @@ export default {
     imagekit: {
       baseURL: "https://ik.imagekit.io/kennethbass/"
     }
+  },
+
+  env: {
+    private_api: process.env.NUXT_IMAGEKIT_PRIVATE,
+    public_api: process.env.NUXT_IMAGEKIT_PUBLIC,
+    imageKit_endpoint: process.env.NUXT_IMAGEKIT_ENDPOINT
   }
 };
