@@ -11,6 +11,6 @@
       border-r border-gray-300
     "
   >
-    <h1 class="font-bold text-xl">Dashboard</h1>
+    <h1 class="font-bold text-2xl truncate">Dashboard</h1>
   </div>
 </template>

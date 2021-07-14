@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="pr-2 md:pr-4 flex items-center">
-        <h2 class="text-sm md:text-md font-bold">{{ username }}</h2>
+        <h2 class="text-sm md:text-base font-bold">{{ username }}</h2>
       </div>
       <div
         class="

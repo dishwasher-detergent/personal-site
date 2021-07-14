@@ -10,7 +10,7 @@
       "
     >
       <div class="flex-1 w-full">
-        <h2
+        <h3
           class="
             pl-4
             py-2
@@ -22,11 +22,11 @@
           "
         >
           New Portfolio Item
-        </h2>
+        </h3>
         <div class="h-96 md:h-auto overflow-y-auto">
           <div class="py-4 px-2 bg-white border-b border-gray-300">
             <label>
-              <p class="pl-4 pb-2 text-xs font-bold text-gray-700">Title</p>
+              <p class="pl-4 pb-2 text-sm font-bold text-gray-700">Title</p>
               <input
                 v-model="project.title"
                 class="
@@ -45,7 +45,7 @@
           </div>
           <div class="py-4 px-2 bg-white border-b border-gray-300">
             <label>
-              <p class="pl-4 pb-2 text-xs font-bold text-gray-700">
+              <p class="pl-4 pb-2 text-sm font-bold text-gray-700">
                 Technologies
               </p>
               <div class="flex flex-row">
@@ -72,6 +72,8 @@
                       flex
                       flex-row
                       items-center
+                      leading-7
+                      text-md
                       rounded-r-2xl
                       border-t border-b border-r border-gray-300
                       text-blue-600
@@ -79,7 +81,7 @@
                     "
                     @click="techDrop = !techDrop"
                   >
-                    <span class="mr-2">
+                    <span class="mr-1">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-4 w-4"
@@ -149,14 +151,14 @@
                   </button>
                 </Pill>
               </Pills>
-              <p v-else class="text-gray-900 text-xs w-full text-center">
-                No Technologies
+              <p v-else class="text-gray-600 text-xs w-full text-center">
+                No Technologies Added
               </p>
             </div>
           </div>
           <div class="py-4 px-2 bg-white border-b border-gray-300">
             <label>
-              <p class="pl-4 pb-2 text-xs font-bold text-gray-700">
+              <p class="pl-4 pb-2 text-sm font-bold text-gray-700">
                 Information
               </p>
               <input
@@ -177,7 +179,7 @@
           </div>
           <div class="py-4 px-2 bg-white border-b border-gray-300">
             <label>
-              <p class="pl-4 pb-2 text-xs font-bold text-gray-700">GitHub</p>
+              <p class="pl-4 pb-2 text-sm font-bold text-gray-700">GitHub</p>
               <input
                 v-model="project.github"
                 class="
@@ -196,7 +198,7 @@
           </div>
           <div class="py-4 px-2 bg-white border-b border-gray-300">
             <label>
-              <p class="pl-4 pb-2 text-xs font-bold text-gray-700">Website</p>
+              <p class="pl-4 pb-2 text-sm font-bold text-gray-700">Website</p>
               <input
                 v-model="project.website"
                 class="
@@ -215,7 +217,7 @@
           </div>
           <div class="py-4 px-2 bg-white border-b border-gray-300">
             <label>
-              <p class="pl-4 pb-2 text-xs font-bold text-gray-700">Image</p>
+              <p class="pl-4 pb-2 text-sm font-bold text-gray-700">Image</p>
               <ik-upload :onError="onError" :onSuccess="onSuccess" />
             </label>
           </div>
@@ -239,7 +241,7 @@
     </article>
     <article class="md:col-span-4 md:h-full flex flex-col">
       <div class="h-full w-full">
-        <h2
+        <h3
           class="
             pl-4
             py-2
@@ -251,7 +253,7 @@
           "
         >
           Preview
-        </h2>
+        </h3>
         <div class="p-8">
           <ProjectCard
             :key="project.id"

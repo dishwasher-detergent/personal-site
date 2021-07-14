@@ -16,10 +16,15 @@
 html {
   @apply text-gray-700;
   transition: all .25s;
+  font-family: 'Poppins', sans-serif;
 }
 
-h1,h2,h3 {
+h1,h2 {
   font-family: "Carena";
   @apply text-blue-600;
+}
+
+input {
+  @apply text-base
 }
 </style>
