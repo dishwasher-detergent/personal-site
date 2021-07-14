@@ -254,7 +254,7 @@
         >
           Preview
         </h3>
-        <div class="p-8">
+        <div class="p-8 h-screen">
           <ProjectCard
             :key="project.id"
             :title="project.title"
