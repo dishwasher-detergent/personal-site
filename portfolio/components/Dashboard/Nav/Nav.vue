@@ -11,10 +11,10 @@
       "
     >
       <!--   Title   -->
-      <DashboardTitle/>
+      <DashboardNavTitle/>
       <!--   Search Box   -->
-      <DashboardSearch/>
+      <DashboardNavSearch/>
       <!--   Account   -->
-      <DashboardAccount/>
+      <DashboardNavAccount/>
     </nav>
 </template>

@@ -51,10 +51,13 @@
     </button>
     <ul
       v-if="acctDrop"
-      class="absolute top-16 right-8 p-4 rounded-2xl border border-gray-300 bg-white"
+      class="absolute w-48 top-16 right-8 p-4 rounded-2xl border border-gray-300 bg-white z-50"
     >
+      <li class="text-sm truncate mb-4">
+        {{email}}
+      </li>
       <li>
-        <NuxtLink to="/Login?type=signOut" class="py-2 px-4 rounded-2xl bg-blue-600 text-white">
+        <NuxtLink to="/Login?type=signOut" class="flex items-center justify-center w-full py-2 rounded-2xl bg-blue-600 text-white">
           Logout
         </NuxtLink>
       </li>

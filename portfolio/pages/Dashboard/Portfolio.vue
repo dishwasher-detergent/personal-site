@@ -73,7 +73,7 @@
                       flex-row
                       items-center
                       leading-7
-                      text-md
+                      text-sm
                       rounded-r-2xl
                       border-t border-b border-r border-gray-300
                       text-blue-600
@@ -99,16 +99,16 @@
                     </span>
                     Colors
                   </button>
-                  <ul v-if="techDrop" class="absolute top-12 p-4 rounded-2xl border border-gray-300 bg-white">
+                  <ul v-if="techDrop" class="absolute top-12 w-36 p-4 rounded-2xl border border-gray-300 bg-white">
                     <li v-for="color in colors" :key="color.id">
                       <label class="py-1 flex flex-row items-center">
                         <input v-model="techColor" type="radio" :value="color" name="color" class="mr-2">
-                        <p class="text-sm">{{color}}</p>
+                        <p class="text-md">{{color}}</p>
                       </label>
                     </li>
                   </ul>
                 </span>
-                <button class="ml-4 flex-0 text-sm text-blue-600 pr-2" @click="addTech()">
+                <button class="ml-4 px-2 flex-0 text-sm rounded-2xl text-blue-600 hover:bg-blue-100" @click="addTech()">
                   Add
                 </button>
               </div>
@@ -301,6 +301,7 @@ export default {
       }
     },
     addTech() {
+      this.techDrop = false
       this.project.tech.push({ name: this.techInput, color: this.techColor });
     },
     removeTech(tech) {
