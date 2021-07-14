@@ -61,7 +61,7 @@ export default {
     }
   },
 
-  publicRuntimeConfig: {
+  env: {
     private_api: process.env.NUXT_IMAGEKIT_PRIVATE,
     public_api: process.env.NUXT_IMAGEKIT_PUBLIC,
     imageKit_endpoint: process.env.NUXT_IMAGEKIT_ENDPOINT
