@@ -6,7 +6,7 @@ const public_api = process.env.NUXT_IMAGEKIT_PUBLIC;
 const imageKit_endpoint = process.env.NUXT_IMAGEKIT_ENDPOINT;
 
 Vue.use(ImageKit, {
-  urlEndpoint: imageKit_endpoint,
+  urlEndpoint: 'https://ik.imagekit.io/kennethbass',
   publicKey: public_api,
   authenticationEndpoint: 'https://beta.kennethbass.com/api/imageKit'
 })
