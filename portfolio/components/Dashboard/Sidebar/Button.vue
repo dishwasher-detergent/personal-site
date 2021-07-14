@@ -1,7 +1,7 @@
 <template>
   <li>
     <NuxtLink
-      :to="'Dashboard/' + to"
+      :to="'/Dashboard/' + to"
       class="
         w-full
         py-2
@@ -10,7 +10,7 @@
         items-center
         rounded-2xl
         text-blue-600
-        hover:bg-blue-50
+        hover:bg-blue-100
       "
     >
       <span class="pr-4">

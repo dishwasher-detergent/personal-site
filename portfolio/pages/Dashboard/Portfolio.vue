@@ -16,7 +16,6 @@
             py-2
             font-bold
             truncate
-            text-sm
             bg-blue-100
             text-blue-600
             border-b border-gray-300
@@ -122,9 +121,9 @@
                 border border-gray-300
               "
             >
-              <Pills v-if="project.techs.length > 0">
+              <Pills v-if="project.tech.length > 0">
                 <Pill
-                  v-for="tech in project.techs"
+                  v-for="tech in project.tech"
                   :key="tech.id"
                   :class="
                     'bg-' + tech.color + '-200 text-' + tech.color + '-600'
@@ -233,7 +232,7 @@
           border-t border-gray-300
         "
       >
-        <button class="py-2 px-4 rounded-2xl bg-blue-500 text-white">
+        <button class="py-2 px-4 rounded-2xl bg-blue-500 text-white" @click="addProject()">
           Add To Portfolio
         </button>
       </div>
@@ -246,7 +245,6 @@
             py-2
             font-bold
             truncate
-            text-sm
             bg-blue-100
             text-blue-600
             border-b border-gray-300
@@ -258,7 +256,7 @@
           <ProjectCard
             :key="project.id"
             :title="project.title"
-            :techs="project.techs"
+            :techs="project.tech"
             :information="project.information"
             :website="project.website"
             :github="project.github"
@@ -278,9 +276,8 @@ export default {
       techInput: null,
       techColor: 'blue',
       project: {
-        id: 1,
         title: null,
-        techs: [],
+        tech: [],
         information: null,
         website: null,
         github: null,
@@ -290,14 +287,25 @@ export default {
     };
   },
   methods: {
+    async addProject(){
+      try {
+        const { data, error } = await this.$supabase.from('projects').insert([
+          this.project,
+        ])
+        if (!error) return data
+        throw error
+      } catch (error) {
+        return
+      }
+    },
     addTech() {
-      this.project.techs.push({ name: this.techInput, color: this.techColor });
+      this.project.tech.push({ name: this.techInput, color: this.techColor });
     },
     removeTech(tech) {
-      var index = this.project.techs.findIndex(function (item, i) {
+      var index = this.project.tech.findIndex(function (item, i) {
         return item.name === tech;
       });
-      this.project.techs.splice(index, 1);
+      this.project.tech.splice(index, 1);
     },
     onError(err) {
       console.log('Error')

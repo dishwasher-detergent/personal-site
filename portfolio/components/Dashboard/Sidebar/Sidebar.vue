@@ -1,7 +1,7 @@
 <template>
   <aside class="hidden md:block w-48 h-full border-r border-gray-300">
     <ul class="pt-4 px-2 w-full space-y-2">
-      <DashboardSidebarButton to="/">
+      <DashboardSidebarButton to="Portfolio">
         <template v-slot:svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
