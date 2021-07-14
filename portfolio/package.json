@@ -16,6 +16,7 @@
     "@supabase/supabase-js": "^1.13.2",
     "core-js": "^3.9.1",
     "imagekitio-vue": "^1.0.9",
+    "imagekit": "^3.1.2",
     "nodemailer": "^6.6.2",
     "nuxt": "^2.15.6",
     "vue2-boring-avatars": "^0.3.2"
