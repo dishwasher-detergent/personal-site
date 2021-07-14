@@ -304,7 +304,7 @@ export default {
       console.log(err)
     },
     onSuccess(res) {
-      this.product.image = res.filePath
+      this.project.image = res.filePath
     },
   },
 };
