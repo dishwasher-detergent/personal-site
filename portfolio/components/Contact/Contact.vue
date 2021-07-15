@@ -42,7 +42,7 @@
                 px-4
                 h-36
                 rounded-2xl
-                ring-1 ring-gray-300
+                border border-gray-300
                 resize-none
               "
             ></textarea>
@@ -89,7 +89,7 @@
               v-model="contact.subject"
               type="text"
               placeholder="Howdy Partner"
-              class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+              class="py-3 px-4 rounded-2xl border border-gray-300 text-lg"
             />
           </label>
         </div>
@@ -143,7 +143,7 @@
                 v-model="contact.name.first"
                 type="text"
                 placeholder="David"
-                class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+                class="py-3 px-4 rounded-2xl border border-gray-300 text-lg"
               />
             </label>
             <label class="flex flex-col font-bold">
@@ -152,7 +152,7 @@
                 v-model="contact.name.last"
                 type="text"
                 placeholder="Spade"
-                class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+                class="py-3 px-4 rounded-2xl border border-gray-300 text-lg"
               />
             </label>
           </div>
@@ -162,7 +162,7 @@
               v-model="contact.email"
               type="email"
               placeholder="someone@something.com"
-              class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+              class="py-3 px-4 rounded-2xl border border-gray-300 text-lg"
             />
           </label>
         </div>
