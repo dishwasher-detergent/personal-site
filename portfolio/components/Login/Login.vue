@@ -33,7 +33,7 @@
               v-model="login.email"
               type="text"
               placeholder="person@emailprovider.com"
-              class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+              class="py-3 px-4 rounded-2xl border border-gray-300 text-lg"
             />
           </label>
           <label class="flex flex-col font-bold">
@@ -42,7 +42,7 @@
               v-model="login.password"
               type="password"
               placeholder="secretly secret"
-              class="py-3 px-4 rounded-2xl ring-1 ring-gray-300 text-lg"
+              class="py-3 px-4 rounded-2xl border border-gray-300 text-lg"
             />
           </label>
         </div>
