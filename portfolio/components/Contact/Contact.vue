@@ -194,6 +194,7 @@ export default {
       let check = this.checkStage()
       if(check){
         this.error = check
+        this.$notify({ type: 'error', text: check })
         return
       }
       this.error = null
@@ -233,8 +234,21 @@ export default {
         this.error = check
         return
       }      
+
+      let initial = this.contact.name.first.charAt(0) + this.contact.name.last.charAt(0)
       try {
-        const { data } = await this.$axios.post("/api/sendEmail", this.contact);
+        const { data, err } = await this.$supabase
+        .from('inquiries')
+        .insert([{
+          firstname: this.contact.name.first,
+          lastname: this.contact.name.last,
+          initial: initial,
+          email: this.contact.email,
+          subject: this.contact.subject,
+          message: this.contact.message,
+        }])
+        if(err) throw err
+        else this.$notify({ type: 'success', text: 'Successfully sent!' })
       } catch (err) {
         alert(err);
       }

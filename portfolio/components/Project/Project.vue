@@ -26,21 +26,21 @@ export default {
     };
   },
   created() {
-    this.getProjects();
+    this.getProjects()
   },
   methods: {
     async getProjects() {
       try {
         let { data: projects, error } = await this.$supabase
           .from("projects")
-          .select("*");
+          .select("*")
         if (error) {
-          throw error;
+          throw error
         } else {
-          this.projects = projects;
+          this.projects = projects
         }
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        this.$notify({ type: 'error', text: error })
         this.projects = [
           {
             title: "Error",

@@ -24,7 +24,7 @@ export default {
   pageTransition: "my-page",
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["@/plugins/supabase.client.js", "~/plugins/imagekit.js","~/plugins/boringAvatars.js"],
+  plugins: ["@/plugins/supabase.client.js", "~/plugins/imagekit.js","~/plugins/boringAvatars.js",{ src: '~/plugins/notifications-client', ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

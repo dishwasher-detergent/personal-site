@@ -1,5 +1,5 @@
 <template>
-  <main class="flex-1 w-full flex flex-row">
+  <main class="h-full w-full flex flex-row overflow-hidden">
     <slot></slot>
   </main>
 </template>

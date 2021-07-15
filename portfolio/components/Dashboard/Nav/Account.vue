@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <button
+    <div
       @click="acctDrop = !acctDrop"
       class="
         py-2
@@ -10,6 +10,7 @@
         justify-between
         rounded-2xl
         hover:bg-blue-100
+        cursor-pointer
       "
     >
       <div class="pr-2">
@@ -46,9 +47,9 @@
           font-bold
         "
       >
-        <Avatar variant="marble" :size="40" />
+        <Avatar variant="beam" :size="40" :name="user"/>
       </div>
-    </button>
+    </div>
     <ul
       v-if="acctDrop"
       class="absolute w-48 top-16 right-8 p-4 rounded-2xl border border-gray-300 bg-white z-50"
@@ -70,7 +71,7 @@ export default {
   components: { Avatar },
   data() {
     return {
-      user: null,
+      user: 'temp',
       username: null,
       email: null,
       acctDrop: false

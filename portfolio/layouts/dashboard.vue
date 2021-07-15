@@ -1,5 +1,6 @@
 <template>
-    <div class="min-h-screen bg-gray-50 flex flex-col">
+    <div class="min-h-screen w-full md:h-screen flex flex-col bg-gray-50">
+      <notifications position="top right"/>
       <DashboardNav />
       <DashboardContent>
         <DashboardSidebar/>
@@ -7,6 +8,11 @@
       </DashboardContent>
     </div>
 </template>
+<script>
+export default {
+  middleware: 'auth',
+}
+</script>
 <style>
 @font-face {
   font-family: "Carena";

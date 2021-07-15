@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full h-full flex-1 flex flex-col md:grid grid-cols-6">
+  <section class="w-full flex-1 flex flex-col md:grid grid-cols-6">
     <article
       class="
         md:col-span-2
@@ -254,7 +254,7 @@
         >
           Preview
         </h3>
-        <div class="p-8 h-screen">
+        <div class="p-8 h-screen md:h-auto max-w-7xl mx-auto">
           <ProjectCard
             :key="project.id"
             :title="project.title"
@@ -294,7 +294,10 @@ export default {
         const { data, error } = await this.$supabase.from('projects').insert([
           this.project,
         ])
-        if (!error) return data
+        if (!error){
+          this.$notify({ type: 'success', text: 'Project added!' })
+          return data
+        }
         throw error
       } catch (error) {
         return
@@ -311,8 +314,7 @@ export default {
       this.project.tech.splice(index, 1);
     },
     onError(err) {
-      console.log('Error')
-      console.log(err)
+      this.$notify({ type: 'error', text: err })
     },
     onSuccess(res) {
       this.project.image = res.filePath
