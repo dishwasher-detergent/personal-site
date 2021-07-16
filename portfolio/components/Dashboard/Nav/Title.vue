@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    to="/"
     class="
       hidden
       h-full
@@ -12,5 +13,5 @@
     "
   >
     <h1 class="font-bold text-2xl truncate">Dashboard</h1>
-  </div>
+  </NuxtLink>
 </template>

@@ -15,22 +15,7 @@
         "
         v-if="curr_stage == 'why'"
       >
-        <div class="space-y-4 flex-1">
-          <div
-            v-if="error"
-            class="
-              px-4
-              py-3
-              w-full
-              bg-red-200
-              text-red-600 text-bold
-              rounded-3xl
-            "
-          >
-            <span>{{ error }}</span>
-          </div>
-        </div>
-        <h2 class="text-5xl mb-6">Spill The Beans</h2>
+        <h2 class="text-3xl md:text-5xl mb-6">Spill The Beans</h2>
         <div class="space-y-6 flex-1">
           <label class="flex flex-col font-bold">
             <p class="text-sm text-gray-600 mb-2 ml-4">Message</p>
@@ -66,22 +51,7 @@
         "
         v-if="curr_stage == 'what'"
       >
-        <div class="space-y-4 flex-1">
-          <div
-            v-if="error"
-            class="
-              px-4
-              py-3
-              w-full
-              bg-red-200
-              text-red-600 text-bold
-              rounded-3xl
-            "
-          >
-            <span>{{ error }}</span>
-          </div>
-        </div>
-        <h2 class="text-5xl mb-6">Pique My Interest</h2>
+        <h2 class="text-3xl md:text-5xl mb-6">Pique My Interest</h2>
         <div class="space-y-6 flex-1">
           <label class="flex flex-col font-bold">
             <p class="text-sm text-gray-600 mb-2 ml-4">Subject</p>
@@ -111,22 +81,7 @@
         "
         v-if="curr_stage == 'who'"
       >
-        <div class="space-y-4 flex-1">
-          <div
-            v-if="error"
-            class="
-              px-4
-              py-3
-              w-full
-              bg-red-200
-              text-red-600 text-bold
-              rounded-3xl
-            "
-          >
-            <span>{{ error }}</span>
-          </div>
-        </div>
-        <h2 class="text-5xl mb-6">Who are you?</h2>
+        <h2 class="text-3xl md:text-5xl mb-6">Who are you?</h2>
         <div class="space-y-4 flex-1 w-full">
           <div
             class="
@@ -248,9 +203,12 @@ export default {
           message: this.contact.message,
         }])
         if(err) throw err
-        else this.$notify({ type: 'success', text: 'Successfully sent!' })
+        else {
+          this.curr_stage = 'who'
+          this.$notify({ type: 'success', text: 'Successfully sent!' })
+        }
       } catch (err) {
-        alert(err);
+        this.$notify({ type: 'error', text: err })
       }
     },
   },

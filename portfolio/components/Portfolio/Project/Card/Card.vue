@@ -3,7 +3,7 @@
     ref="project"
     class="w-full mb-16 flex justify-end relative flex-col md:flex-row"
   >
-    <transition name="slide">
+    <transition name="bounce">
       <div
         v-if="shown"
         class="
@@ -29,19 +29,20 @@
             overflow-hidden
             bg-white
             flex flex-col
+            shadow
           "
         >
           <div class="flex-1 flex flex-col">
             <h2 class="text-4xl flex-none">{{ title }}</h2>
-            <Pills>
-              <Pill
+            <PortfolioProjectPills>
+              <PortfolioProjectPill
                 v-for="tech in techs"
                 :key="tech.id"
                 :class="'bg-' + tech.color + '-200 text-' + tech.color + '-600'"
               >
                 {{ tech.name }}
-              </Pill>
-            </Pills>
+              </PortfolioProjectPill>
+            </PortfolioProjectPills>
             <article class="mx-4 mt-4 flex flex-row flex-1">
               <span
                 class="
@@ -67,7 +68,7 @@
               pt-6
             "
           >
-            <ProjectCardLink :website="website" :github="github" />
+            <PortfolioProjectCardLink :website="website" :github="github" />
           </div>
         </div>
       </div>
@@ -78,19 +79,23 @@
         class="
           w-full
           md:w-4/5
-          h-96
+          h-48
           md:h-large
           bg-gray-300
           rounded-b-3xl
           md:rounded-3xl
+          overflow-hidden
+          shadow
         "
-      ></div>
+      >
+      	<PortfolioProjectImage :alt="title" :image="image"/>
+      </div>
     </transition>
   </div>
 </template>
 <script>
 export default {
-  props: ["title", "techs", "information", "github", "website"],
+  props: ["title", "techs", "information", "github", "website", "image"],
   data() {
     return {
       observer: null,
@@ -99,22 +104,25 @@ export default {
   },
   created() {
     this.observer = new IntersectionObserver(this.onElementObserved, {
-      root: this.$el,
-      rootMargin: '0px',
-      threshold: 1.0
+      rootMargin: "0px 0px -20% 0px",
+      threshold: 1
     });
   },
   mounted() {
     this.observer.observe(this.$el);
   },
+  beforeDestroy() {
+    this.observer.disconnect();
+  },
   methods: {
     onElementObserved(entries) {
-      entries.forEach(({ target, isIntersecting }) => {
-        if (!isIntersecting) {
-          return;
-        }
-        this.observer.unobserve(target);
-        this.shown = true;
+      entries.forEach(({ target, isIntersecting}) => {
+          if (!isIntersecting) {
+            return;
+          }
+          
+          this.observer.unobserve(target);
+          this.shown = true;
       });
     },
   },
@@ -126,8 +134,14 @@ export default {
   height: 30rem;
 }
 
-.slide-enter-active {
+.bounce-enter-active {
   animation: slideIn 1s ease-out both;
+}
+
+@media only screen and (max-width: 640px) {
+  .bounce-enter-active {
+    animation: slideInMobile 1s ease-out both;
+  }
 }
 
 .fade-leave-active,
@@ -141,21 +155,37 @@ export default {
 
 @keyframes slideIn {
   0% {
-    opacity: 0%;
     transform: scale(1, 1) translateX(0);
   }
   10% {
-    transform: scale(0.9, 1.10) translateX(0);
+    transform: scale(0.99, 1.01) translateX(0);
   }
   30% {
-    opacity: 100%;
-    transform: scale(1.10,0.9) translateX(-150px);
+    transform: scale(1.01,0.99) translateX(-15px);
   }
   50% {
     transform: scale(1, 1) translateX(0);
   }
   100% {
     transform: scale(1, 1) translateX(0);
+  }
+}
+
+@keyframes slideInMobile {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.01,0.99) translateY(0);
+  }
+  30% {
+    transform: scale(0.99,1.01) translateY(-15px);
+  }
+  50% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
   }
 }
 </style>

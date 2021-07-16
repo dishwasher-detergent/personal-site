@@ -8,9 +8,14 @@
          }"
      >
         <div class="flex flex-col md:flex-row h-full w-full">
-            <h1 class="text-6xl md:text-9xl">
-                <slot name="title"></slot>
-            </h1>
+            <div>
+                <h1 class="text-6xl md:text-9xl">
+                    <slot name="title"></slot>
+                </h1>
+                <p class="md:text-xl">
+                    <slot name="sub"></slot>
+                </p>
+            </div>
             <div class="w-full h-full mt-8 md:mt-0 md:ml-16">
                 <slot name="extra-content"></slot>
             </div>

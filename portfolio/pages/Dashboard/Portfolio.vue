@@ -123,8 +123,8 @@
                 border border-gray-300
               "
             >
-              <Pills v-if="project.tech.length > 0">
-                <Pill
+              <PortfolioProjectPills v-if="project.tech.length > 0">
+                <PortfolioProjectPill
                   v-for="tech in project.tech"
                   :key="tech.id"
                   :class="
@@ -149,8 +149,8 @@
                       />
                     </svg>
                   </button>
-                </Pill>
-              </Pills>
+                </PortfolioProjectPill>
+              </PortfolioProjectPills>
               <p v-else class="text-gray-600 text-xs w-full text-center">
                 No Technologies Added
               </p>
@@ -255,7 +255,7 @@
           Preview
         </h3>
         <div class="p-8 h-screen md:h-auto max-w-7xl mx-auto">
-          <ProjectCard
+          <PortfolioProjectCard
             :key="project.id"
             :title="project.title"
             :techs="project.tech"

@@ -1,6 +1,6 @@
 <template>
   <div class="w-full" v-if="projects">
-    <ProjectCard
+    <PortfolioProjectCard
       v-for="project in projects"
       :key="project.id"
       :title="project.title"
@@ -34,6 +34,7 @@ export default {
         let { data: projects, error } = await this.$supabase
           .from("projects")
           .select("*")
+          .order('id', { ascending: false })
         if (error) {
           throw error
         } else {
