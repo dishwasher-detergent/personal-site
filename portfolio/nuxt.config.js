@@ -11,10 +11,15 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     link: [{ rel: "preconnect", href: "https://fonts.googleapis.com" }],
     link: [{ rel: "preconnect", href: "https://fonts.gstatic.com" }],
-    link: [{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" }]
+    link: [
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      }
+    ]
   },
 
   css: ["~/assets/main.css"],
@@ -28,17 +33,27 @@ export default {
     img: "~/static/favicon.png",
     img_size: { width: "512", height: "512" },
     locale: "en_US",
-    theme_color: "#ffffff",
+    theme_color: "#ffffff"
   },
 
-  plugins: ["@/plugins/supabase.client.js", "~/plugins/imagekit.js","~/plugins/boringAvatars.js",{ src: '~/plugins/notifications-client', ssr: false }],
+  plugins: [
+    "@/plugins/supabase.client.js",
+    "~/plugins/imagekit.js",
+    "~/plugins/boringAvatars.js",
+    { src: "~/plugins/notifications-client", ssr: false }
+  ],
 
   components: true,
-  target: 'static',
+  target: "static",
 
   buildModules: ["@nuxtjs/tailwindcss", "nuxt-animejs"],
 
-  modules: ["@nuxt/content", "@nuxtjs/axios", "@nuxtjs/auth-next", "@nuxtjs/dotenv"],
+  modules: [
+    "@nuxt/content",
+    "@nuxtjs/axios",
+    "@nuxtjs/auth-next",
+    "@nuxtjs/dotenv"
+  ],
 
   build: {},
 
@@ -49,7 +64,7 @@ export default {
   auth: {
     strategies: {
       supabase: {
-        scheme: '~/schemes/supabaseScheme'
+        scheme: "~/schemes/supabaseScheme"
       }
     }
   },
@@ -64,5 +79,69 @@ export default {
     private_api: process.env.NUXT_IMAGEKIT_PRIVATE,
     public_api: process.env.NUXT_IMAGEKIT_PUBLIC,
     imageKit_endpoint: process.env.NUXT_IMAGEKIT_ENDPOINT
+  },
+
+  "rfg-icon": {
+    static: true,
+    staticPath: "/_favicons/",
+    masterPicture: "static/icon.png",
+    rfg: {
+      masterPicture: "TODO: Path to your master picture",
+      iconsPath: "/",
+      design: {
+        ios: {
+          pictureAspect: "noChange",
+          assets: {
+            ios6AndPriorIcons: false,
+            ios7AndLaterIcons: false,
+            precomposedIcons: false,
+            declareOnlyDefaultIcon: true
+          }
+        },
+        desktopBrowser: {
+          design: "raw"
+        },
+        windows: {
+          pictureAspect: "noChange",
+          backgroundColor: "#2d89ef",
+          onConflict: "override",
+          assets: {
+            windows80Ie10Tile: false,
+            windows10Ie11EdgeTiles: {
+              small: false,
+              medium: true,
+              big: false,
+              rectangle: false
+            }
+          }
+        },
+        androidChrome: {
+          pictureAspect: "noChange",
+          themeColor: "#ffffff",
+          manifest: {
+            display: "standalone",
+            orientation: "notSet",
+            onConflict: "override",
+            declared: true
+          },
+          assets: {
+            legacyIcon: false,
+            lowResolutionIcons: false
+          }
+        },
+        safariPinnedTab: {
+          pictureAspect: "blackAndWhite",
+          threshold: 68.75,
+          themeColor: "#5bbad5"
+        }
+      },
+      settings: {
+        scalingAlgorithm: "Mitchell",
+        errorOnImageTooSmall: false,
+        readmeFile: false,
+        htmlCodeFile: false,
+        usePathAsIs: false
+      }
+    }
   }
 };
