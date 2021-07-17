@@ -1,8 +1,6 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Kenneth Bass",
     htmlAttrs: {
@@ -19,24 +17,29 @@ export default {
     link: [{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" }]
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/main.css"],
   pageTransition: "my-page",
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  "nuxt-social-meta": {
+    url: "kennethbass.com",
+    title: "Portfolio for Kenneth Bass",
+    site_name: "Kenneth Bass",
+    description: "Portfolio for Kenneth Bass",
+    img: "~/static/favicon.png",
+    img_size: { width: "512", height: "512" },
+    locale: "en_US",
+    theme_color: "#ffffff",
+  },
+
   plugins: ["@/plugins/supabase.client.js", "~/plugins/imagekit.js","~/plugins/boringAvatars.js",{ src: '~/plugins/notifications-client', ssr: false }],
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
   target: 'static',
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: ["@nuxtjs/tailwindcss", "nuxt-animejs"],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxt/content", "@nuxtjs/axios", "@nuxtjs/auth-next", "@nuxtjs/dotenv"],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   axios: {
@@ -47,7 +50,6 @@ export default {
     strategies: {
       supabase: {
         scheme: '~/schemes/supabaseScheme'
-        /* ... */
       }
     }
   },
