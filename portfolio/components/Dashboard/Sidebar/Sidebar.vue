@@ -1,11 +1,11 @@
 <template>
-  <aside class="hidden md:block w-48 h-full border-r border-gray-300">
+  <aside class="hidden md:block md:w-16 lg:w-48 h-full border-r border-gray-300">
     <ul class="pt-4 px-2 w-full space-y-2">
       <DashboardSidebarButton to="Portfolio">
         <template v-slot:svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
+            class="h-full w-full"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -24,7 +24,7 @@
         <template v-slot:svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
+            class="h-full w-full"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

@@ -4,7 +4,8 @@
     class="
       hidden
       h-full
-      w-48
+      md:w-16
+      lg:w-48
       flex-0
       md:flex
       items-center
@@ -12,6 +13,7 @@
       border-r border-gray-300
     "
   >
-    <h1 class="font-bold text-2xl truncate">Dashboard</h1>
+    <DashboardNavLogo />
+    <h1 class="font-bold text-xl md:hidden lg:inline">Dashboard</h1>
   </NuxtLink>
 </template>

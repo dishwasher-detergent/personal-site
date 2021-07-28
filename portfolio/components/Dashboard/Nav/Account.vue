@@ -47,7 +47,7 @@
           font-bold
         "
       >
-        <Avatar variant="beam" :size="40" :name="user"/>
+        <Avatar variant="beam" :size="40" :name="email"/>
       </div>
     </div>
     <ul
@@ -77,7 +77,7 @@ export default {
       acctDrop: false
     };
   },
-  async mounted() {
+  async created() {
     await this.getUser();
   },
   methods: {

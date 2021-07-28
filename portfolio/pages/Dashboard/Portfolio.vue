@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full flex-1 flex flex-col md:grid grid-cols-6">
+  <section class="w-full flex-1 flex flex-col-reverse md:grid grid-cols-6">
     <article
       class="
         md:col-span-2
