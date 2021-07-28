@@ -3,9 +3,8 @@
     ref="project"
     class="w-full mb-16 flex justify-end relative flex-col md:flex-row"
   >
-    <transition name="bounce">
       <div
-        v-if="shown"
+        ref="information"
         class="
           md:absolute
           md:left-0
@@ -72,10 +71,7 @@
           </div>
         </div>
       </div>
-    </transition>
-    <transition name='fade'>
       <div
-        v-if="shown"
         class="
           w-full
           md:w-4/5
@@ -90,7 +86,6 @@
       >
       	<PortfolioProjectImage :alt="title" :image="image"/>
       </div>
-    </transition>
   </div>
 </template>
 <script>
@@ -102,27 +97,23 @@ export default {
       shown: false,
     };
   },
-  created() {
-    this.observer = new IntersectionObserver(this.onElementObserved, {
-      rootMargin: "0px 0px -20% 0px",
-      threshold: 1
-    });
-  },
   mounted() {
-    this.observer.observe(this.$el);
-  },
-  beforeDestroy() {
-    this.observer.disconnect();
+    this.projectCardAnim();
   },
   methods: {
-    onElementObserved(entries) {
-      entries.forEach(({ target, isIntersecting}) => {
-          if (!isIntersecting) {
-            return;
-          }
-          
-          this.observer.unobserve(target);
-          this.shown = true;
+    projectCardAnim() {
+      const gsap = this.$gsap;
+      var timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: this.$refs.project,
+        },
+      });
+
+      timeline.from(this.$refs.information, {
+        delay: .1,
+        scaleX: .80,
+        scaleY: .9,
+        ease: 'back.out(1.5)'
       });
     },
   },

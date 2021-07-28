@@ -35,7 +35,7 @@ export default {
   components: true,
   target: "static",
 
-  buildModules: ["@nuxtjs/tailwindcss", "nuxt-animejs",'nuxt-gsap-module','@nuxtjs/device'],
+  buildModules: ["@nuxtjs/tailwindcss",'nuxt-gsap-module','@nuxtjs/device'],
 
   modules: [
     "@nuxt/content",
