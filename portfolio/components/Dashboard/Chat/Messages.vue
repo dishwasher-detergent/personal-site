@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 overflow-y-auto">
+  <div ref="message" class="flex-1 overflow-y-auto">
     <DashboardChatMessagePreview
       v-for="message in messages"
       :key="message.id"
@@ -19,14 +19,15 @@ export default {
       messages: null,
     };
   },
-  mounted() {
-    this.getMessages();
+  async mounted() {
+    await this.getMessages();
     const inquiries = this.$supabase
       .from("inquiries")
       .on("*", (payload) => {
-        this.getMessages()
+        this.getMessages();
       })
       .subscribe();
+    this.messageAnim();
   },
   methods: {
     async getMessages() {
@@ -34,16 +35,33 @@ export default {
         let { data: inquiries, error } = await this.$supabase
           .from("inquiries")
           .select("*")
-          .order('id', { ascending: false })
+          .order("id", { ascending: false });
         if (error) {
           throw error;
         } else {
           this.messages = inquiries;
         }
       } catch (error) {
-        this.$notify({ type: 'error', text: error })
+        this.$notify({ type: "error", text: error });
         console.log(error);
       }
+    },
+    messageAnim() {
+      const gsap = this.$gsap;
+      var timeline = gsap.timeline();
+
+      timeline
+        .add("start")
+        .from(
+          this.$refs.message.children,
+          {
+            duration: 0.5,
+            y: 10,
+            stagger: 0.15,
+            ease: "back",
+          },
+          "start"
+        );
     },
   },
 };

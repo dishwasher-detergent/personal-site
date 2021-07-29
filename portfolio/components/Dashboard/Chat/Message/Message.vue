@@ -60,8 +60,8 @@
           </p>
         </div>
       </div>
-      <div v-else class="w-full flex-1 flex items-center justify-center bg-white">
-        <p class="p-4 bg-gray-100 rounded-2xl text-gray-500 text-xl">
+      <div v-else class="w-full flex-1 flex items-center justify-center bg-gray-200">
+        <p class="p-6 bg-gray-300 rounded-xl text-gray-600 text-xl">
           Please select a message to view!
         </p>
       </div>
