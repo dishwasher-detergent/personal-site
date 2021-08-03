@@ -18,7 +18,7 @@
     :class="{
       'from-yellow-200 to-red-200': from == 'yellow',
       'from-blue-200 to-red-200': from == 'blue',
-      'from-green-200 to-red-200': from == 'green',
+      'from-purple-200 to-red-200': from == 'purple',
     }"
   >
     <div class="flex flex-col md:flex-row h-full w-full">
