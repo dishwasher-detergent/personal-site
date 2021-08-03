@@ -1,11 +1,15 @@
 <template>
-  <div ref="item" class="relative flex flex-row h-64 w-full overflow-hidden">
+  <div
+    ref="item"
+    class="relative flex flex-col md:flex-row md:h-64 w-full overflow-hidden"
+  >
     <div
       ref="image"
       class="
         z-10
         flex-none
-        w-64
+        w-full
+        md:w-64
         h-64
         rounded-3xl
         bg-white bg-gradient-to-br
@@ -65,10 +69,16 @@ export default {
     return {
       observer: null,
       shown: false,
+      windowWidth: window.innerWidth,
+      mobile: 768,
     };
   },
   mounted() {
+    window.addEventListener("resize", this.onResize);
     this.animation();
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
   },
   methods: {
     animation() {
@@ -79,38 +89,66 @@ export default {
         },
       });
 
-      timeline
-        .from(
-          this.$refs.info,
-          {
-            duration: 0.75,
-            x: -150,
-            width: "100px",
-            ease: "back.out(1.5)",
-          },
-          "start"
-        )
-        // .to("#info", {
-        //   	flex: "1 1 0%";
-        // },"start")
-        .to(
-          this.$refs.info,
-          {
-            delay: 0.5,
-            duration: 0.25,
-            borderRadius: "0rem auto auto 0rem",
-          },
-          "start"
-        )
-        .to(
-          this.$refs.image,
-          {
-            delay: 0.5,
-            duration: 0.35,
-            borderRadius: "auto 0rem 0rem auto",
-          },
-          "start"
-        );
+      if (this.windowWidth >= this.mobile) {
+        timeline
+          .from(
+            this.$refs.info,
+            {
+              duration: 0.75,
+              x: -150,
+              width: "100px",
+              ease: "back.out(1.5)",
+            },
+            "start"
+          )
+          .to(
+            this.$refs.info,
+            {
+              delay: 0.5,
+              duration: 0.25,
+              borderRadius: "0rem auto auto 0rem",
+            },
+            "start"
+          )
+          .to(
+            this.$refs.image,
+            {
+              delay: 0.5,
+              duration: 0.35,
+              borderRadius: "auto 0rem 0rem auto",
+            },
+            "start"
+          )
+      } else {
+        timeline
+          .from(
+            this.$refs.info,
+            {
+              duration: 0.75,
+              y: -150,
+              ease: "back.out(1.5)",
+            },
+            "start"
+          )
+          .to(
+            this.$refs.info,
+            {
+              delay: 0.5,
+              duration: 0.25,
+              borderRadius: "0rem 0rem auto auto",
+            },
+            "start"
+          )
+          .to(
+            this.$refs.image,
+            {
+              delay: 0.5,
+              duration: 0.35,
+              borderRadius: "auto auto 0rem 0rem",
+            },
+            "start"
+          )
+      }
     },
   },
 };

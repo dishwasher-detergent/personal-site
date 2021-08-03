@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full flex flex-row">
-    <div class="flex-none w-96 mr-4">
+  <div class="w-full flex flex-col lg:flex-row">
+    <div class="md:flex-none w-full md:w-96 mr-4">
       <div class="pt-6 top-0 sticky">
-        <h1 class="ml-6 mb-2 font-bold text-6xl text-blue-600 truncate">
+        <h1 class="md:ml-6 mb-2 font-bold text-6xl text-blue-600 truncate">
           {{ projects.title }}
         </h1>
         <div class="w-full p-4 rounded-2xl bg-gray-100">
@@ -27,9 +27,9 @@
         </div>
       </div>
     </div>
-    <div class="py-6 flex-1 space-y-4">
-      <div class="border rounded-3xl overflow-hidden">
-        <PortfolioProjectImage :alt="projects.title" :image="projects.image" res="high"/>
+    <div class="py-6 md:flex-1 space-y-4">
+      <div v-for="image in projects.image_gallery" :key="image.id" class="border rounded-3xl overflow-hidden">
+        <PortfolioProjectImage :alt="image" :image="image" res="high"/>
       </div>
     </div>
   </div>
@@ -45,7 +45,8 @@ export default {
         information: null,
         website: null,
         github: null,
-        image: null
+        image: null,
+        image_gallery: null,
       },
     };
   },
@@ -67,6 +68,8 @@ export default {
           throw error;
         } else {
           this.projects = projects[0];
+          this.projects.image_gallery.push(this.projects.image)
+          this.projects.image_gallery.reverse()
         }
       } catch (error) {
         this.$notify({ type: "error", text: error });
