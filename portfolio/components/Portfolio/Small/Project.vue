@@ -1,8 +1,9 @@
 <template>
-  <div class="w-full" v-if="projects[0].title">
-    <PortfolioProjectCard
+  <div class="w-full flex flex-row flex-wrap flex-1 space-y-16" v-if="projects[0].title">
+    <PortfolioSmallCard
       v-for="project in projects"
       :key="project.id"
+      :id="project.id"
       :title="project.title"
       :techs="project.tech"
       :information="project.information"
@@ -26,7 +27,7 @@ export default {
     };
   },
   created() {
-    this.getProjects()
+    this.getProjects();
   },
   methods: {
     async getProjects() {
@@ -34,14 +35,14 @@ export default {
         let { data: projects, error } = await this.$supabase
           .from("projects")
           .select("*")
-          .order('id', { ascending: false })
+          .order("id", { ascending: false });
         if (error) {
-          throw error
+          throw error;
         } else {
-          this.projects = projects
+          this.projects = projects;
         }
       } catch (error) {
-        this.$notify({ type: 'error', text: error })
+        this.$notify({ type: "error", text: error });
         this.projects = [
           {
             title: "Error",
@@ -51,8 +52,7 @@ export default {
                 color: "red",
               },
             ],
-            information:
-              err,
+            information: err,
           },
         ];
       }

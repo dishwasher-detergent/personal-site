@@ -1,8 +1,10 @@
 <template>
   <div class="flex flex-col max-w-7xl mx-auto min-h-screen relative px-4">
-    <notifications width="400" classes="my-notification"/>
-    <Nav />
-    <Nuxt />
+    <div class="flex-1">
+      <notifications width="400" classes="my-notification"/>
+      <Nav />
+      <Nuxt />
+    </div>
     <Footer />
   </div>
 </template>

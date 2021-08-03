@@ -32,24 +32,5 @@ export default {
         'github',
         'website'
     ],
-    data(){
-        return{
-            hovered: false
-        }
-    },
-    methods: {
-        hoverButtons(){
-            this.$anime({
-                // targets: this.$refs.button,
-                // borderRadius: '50px',
-                // keyframes: [
-                //     {translateY: -125,},
-                //     {translateX: -175},
-                // ],
-                // duration: 4000,
-                // easing: 'easeOutElastic(1, .8)',
-            }); 
-        }
-    }
 }
 </script>
