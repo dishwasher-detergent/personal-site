@@ -3,6 +3,9 @@
     <Hero from="yellow" to="red">
       <template v-slot:title> Kenneth<br />Bass </template>
       <template v-slot:sub>A front-end <span>Web Developer</span> with a passion for <span>JavaScript</span> and <span>Design</span></template>
+      <template v-slot:social>
+        <AboutSocial />
+      </template>
     </Hero>
     <About />
     <!-- <Experience /> -->

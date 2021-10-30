@@ -2,6 +2,7 @@
   <div
     ref="hero"
     class="
+      hero
       w-full
       flex
       items-center
@@ -29,6 +30,9 @@
         <p ref="subText" class="md:text-xl">
           <slot name="sub"></slot>
         </p>
+        <div ref="social">
+          <slot name="social"></slot>
+        </div>
       </div>
       <div ref="extraContent" class="w-full h-full mt-8 md:mt-0 md:ml-16">
         <slot name="extra-content"></slot>
@@ -74,14 +78,14 @@ export default {
           opacity: 0,
           y: -50,
           ease: "back.out(2.5)",
-        })
+        }),
       );
     },
   },
 };
 </script>
 <style scoped>
-div {
+div.hero {
   background-size: 400% 400%;
 
   -webkit-animation: AnimationName 15s ease infinite;
